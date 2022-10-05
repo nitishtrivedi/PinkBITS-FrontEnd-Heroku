@@ -1,0 +1,52 @@
+<div class="summary" *ngIf="totalPrice">
+    <h4>Order Summary</h4>
+    <div class="summary-div">
+        <h5>Products</h5>
+        <div class="summary-div-products mb-2" *ngFor="let productSummary of productDetails">
+            <span class="summary-div-products-label">Name: </span>
+            <span class="summary-div-products-value">
+                {{productSummary.product.name}}
+            </span><br />
+            <span class="summary-div-products-label">Price per unit: </span>
+            <span class="summary-div-products-value">
+                {{productSummary.product.price | currency: 'INR'}}
+            </span><br />
+            <span class="summary-div-products-label">Quantity: </span>
+            <span class="summary-div-products-value">
+                {{productSummary.quantity}}
+            </span><br />
+            <span class="summary-div-products-label">Total Price: </span>
+            <span class="summary-div-products-value">
+                {{productSummary.product.price * productSummary.quantity | currency: 'INR'}}
+            </span>
+        </div>
+        <div class="summary-div-products-grandTotal">
+            <span class="summary-div-products-grandTotal-label">Grand Total: </span>
+            <span class="summary-div-products-grandTotal-value">
+                {{totalPrice | currency: 'INR'}}
+            </span>
+        </div>
+    </div>
+</div>
+
+<div class="shipping" *ngIf="totalPrice">
+    <h4>Shipping Information</h4>
+    <div class="shipping-div">
+        <span class="shipping-div-label">
+            Shipping Time:
+        </span>
+        <span class="shipping-div-value">
+            Usually delivered in 3-4 Working Days
+        </span><br />
+        <span class="shipping-div-label">
+            Shipping Charges:
+        </span>
+        <span style="font-weight: bold; color: green;">
+            FREE
+        </span><br />
+    </div>
+</div>
+
+<div class="checkout-button" *ngIf="totalPrice && !isCheckout">
+    <button pButton label="Proceed to Checkout" (click)="navigateToCheckOut()"></button>
+</div>

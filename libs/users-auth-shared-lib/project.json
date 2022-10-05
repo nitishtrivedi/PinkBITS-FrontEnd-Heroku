@@ -1,0 +1,41 @@
+{
+    "projectType": "library",
+    "sourceRoot": "libs/users-auth-shared-lib/src",
+    "prefix": "pinkbits",
+    "targets": {
+        "build": {
+            "executor": "@nrwl/angular:ng-packagr-lite",
+            "outputs": ["dist/libs/users-auth-shared-lib"],
+            "options": {
+                "project": "libs/users-auth-shared-lib/ng-package.json"
+            },
+            "configurations": {
+                "production": {
+                    "tsConfig": "libs/users-auth-shared-lib/tsconfig.lib.prod.json"
+                },
+                "development": {
+                    "tsConfig": "libs/users-auth-shared-lib/tsconfig.lib.json"
+                }
+            },
+            "defaultConfiguration": "production"
+        },
+        "test": {
+            "executor": "@nrwl/jest:jest",
+            "outputs": ["coverage/libs/users-auth-shared-lib"],
+            "options": {
+                "jestConfig": "libs/users-auth-shared-lib/jest.config.ts",
+                "passWithNoTests": true
+            }
+        },
+        "lint": {
+            "executor": "@nrwl/linter:eslint",
+            "options": {
+                "lintFilePatterns": [
+                    "libs/users-auth-shared-lib/**/*.ts",
+                    "libs/users-auth-shared-lib/**/*.html"
+                ]
+            }
+        }
+    },
+    "tags": []
+}

@@ -1,0 +1,72 @@
+<div class="cart-page">
+
+    <!-- HEADER -->
+  <div class="grid">
+    <div class="col-12 cart-page-header">
+      <div class="col-6 cart-page-header-text">
+        <h2>Your Cart</h2>
+      </div>
+      <div class="col-6 cart-page-header-button">
+        <button
+          pButton
+          label="Continue Shopping"
+          icon="pi pi-arrow-left"
+          class="cart-page-header-button-nav"
+          (click)="backToShop()"
+        ></button>
+      </div>
+    </div>
+    <div class="col-12 cart-page-subheader">
+      <h4>Your cart contains {{ cartCount }} item(s)</h4>
+    </div>
+  </div>
+
+
+  <!-- CONTENT -->
+  <div class="grid">
+
+    <!-- Products -->
+    <div class="col-8 products" *ngIf="cartCount !== 0">
+        <h4>Product Details</h4>
+        <div class="grid cart-item p-fluid mt-2" *ngFor="let cartItem of cartItemDetails">
+            <div class="col-2 cart-item-image">
+                <img [src]="cartItem.product.image" [attr.alt]="cartItem.product.name">
+            </div>
+            <div class="col-7">
+                <div class="cart-item-name">
+                    {{cartItem.product.name}}
+                </div>
+                <div class="cart-item-price">
+                    {{cartItem.product.price | currency: 'INR'}}
+                </div>
+                <div class="cart-item-remove">
+                    <button pButton pRipple type="button" icon="pi pi-trash" class="p-button-rounded p-button-danger" (click)="deleteCartItem(cartItem)"></button>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="field cart-item-quantity">
+                    <p-inputNumber mode="decimal" [showButtons]="true" [inputId]="cartItem.product.id" [min]="1" [max]="25" [(ngModel)]="cartItem.quantity" (onInput)="updateCartItemQuantity($event, cartItem)">
+                    </p-inputNumber>
+                </div>
+                <div class="cart-item-subtotal">
+                    Sub-Total:
+                    <span class="cart-item-subtotal-value">
+                        {{cartItem.product.price * cartItem.quantity | currency: 'INR'}}
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Summary -->
+    <div class="col-4">
+      <pinkbits-order-summary></pinkbits-order-summary>
+    </div>
+  </div>
+
+  <div class="no-items" *ngIf="cartCount === 0">
+    <span class="no-items-text">
+      There are no items in your cart <img src="assets/images/sad-emoji-1-removebg-preview.png" alt="">
+    </span>
+  </div>
+</div>

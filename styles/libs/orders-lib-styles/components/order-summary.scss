@@ -1,0 +1,97 @@
+.summary{
+
+    h4 {
+        color: #591E4A;
+        margin-top: 50px;
+        margin-bottom: 0;
+        padding-left: 15px;
+        padding-bottom: 20px;
+    }
+
+    &-div {
+        background-color: #CDA5C3;
+        margin-left: 10px;
+        margin-top: 8px;
+        border-radius: 10px;
+        border: 1px solid #591E4A;
+
+        h5 {
+            padding: 20px 20px 0;
+            color: #591E4A;
+        }
+
+        &-products {
+            color: #591E4A;
+            padding: 10px;
+
+            &-label {
+                font-weight: bold;
+            }
+
+            &-value {
+                font-weight: 450;
+            }
+
+            &-grandTotal {
+                text-align: right;
+                color: #591E4A;
+                padding: 10px;
+    
+                &-label {
+                    font-weight: bold;
+                    font-size: 1.1em;
+                }
+    
+                &-value {
+                    font-weight: 450;
+                    font-size: 1.5em;
+                }
+            }
+        }
+    }
+}
+
+
+.shipping {
+    padding: 5px;
+
+    h4 {
+        color: #591E4A;
+        margin-top: 20px;
+        margin-bottom: 0;
+        padding-left: 15px;
+        padding-bottom: 20px;
+    }
+
+    &-div {
+        background-color: #CDA5C3;
+        margin-left: 10px;
+        margin-top: 8px;
+        border-radius: 10px;
+        border: 1px solid #591E4A;
+        padding: 10px;
+
+        &-label {
+            font-weight: bold;
+        }
+    }
+}
+
+.checkout-button {
+    margin-top: 20px;
+    justify-content: center;
+    display: flex;
+    button {
+        background-color: #591e4a;
+        border: 0;
+        font-weight: bold;
+  
+        &:enabled:hover {
+          background-color: #EEDFEA;
+          border: 2px solid #591e4a;
+          color: #591e4a;
+          font-weight: bold;
+        }
+    }
+}
+

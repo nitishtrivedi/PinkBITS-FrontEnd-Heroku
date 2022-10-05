@@ -1,0 +1,13 @@
+<!-- <i class="pi pi-shopping-cart"></i>
+<small>
+    {{cartCount}}
+</small> -->
+
+<i
+  class="pi pi-shopping-cart p-mr-4 p-text-secondary"
+  pBadge
+  style="font-size: 1.5rem; color: #591e4a"
+  [value]="cartCount"
+  severity="danger"
+  routerLink="/cart"
+></i>

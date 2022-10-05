@@ -1,0 +1,50 @@
+<p-toast></p-toast>
+<div class="admin-page">
+    <p-card [header]="editmode ? 'Edit Category' : 'Add A New Category'" subheader="Note: Please fill in all details to Add/Edit Categories" >
+        <div class="p-grid mb-5">
+            <div class="p-col-12">
+                <p-toolbar>
+                    <div class="p-toolbar-group-left"></div>
+                    <div class="p-toolbar-group-right">
+                        <p-button 
+                            styleClass="p-button-primary mr-2" 
+                            [label]="editmode ? 'Update Changes' : 'Create New'" 
+                            icon="pi pi-plus"
+                            (onClick)="onSubmit()">
+                        </p-button>
+                        <p-button 
+                        styleClass="p-button-secondary" 
+                        (onClick)="onCancel()"
+                        label="Cancel" 
+                        icon="pi pi-arrow-circle-left">
+                    </p-button>
+                    </div>
+                </p-toolbar>
+            </div>
+        </div>
+        <div class="p-grid">
+            <div class="p-col-12">
+                <form [formGroup]="form">
+                    <div class="field grid">
+                        <label for="cat-name" class="col-fixed" style="width:150px">Category Name</label>
+                        <div class="col">
+                            <input id="cat-name" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary" formControlName="name">
+                            <small *ngIf="form.controls.name.invalid && isSubmitted" class="p-error ml-3">Please enter a valid name</small>
+                        </div>
+                    </div>
+                    <div class="field grid">
+                        <label for="cat-icon" class="col-fixed" style="width:150px">Choose an Icon</label>
+                        <div class="col">
+                            <input id="cat-icon" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary" formControlName="icon">
+                            <small *ngIf="form.controls.icon.invalid && isSubmitted" class="p-error ml-3">Please enter a valid Icon Value</small>
+                        </div>
+                    </div> 
+                    <div class="field grid">
+                        <label for="Color" style="margin-right: 10px; padding: 8px; padding-right: 40px; margin: 0;">Choose a Color </label>
+                        <p-colorPicker formControlName="color"></p-colorPicker>
+                    </div>                
+                </form>
+            </div>
+        </div>
+    </p-card>
+</div>

@@ -1,0 +1,34 @@
+.products-page {
+
+    .category {
+        color: #591E4A;
+        font-size: 1.2em;
+        font-weight: bold;
+        margin: 0;
+    }
+
+    .category-checkbox{
+        margin-top: 40px;
+
+        .field-checkbox {
+            font-weight: bold;
+            color: #591E4A;
+        }
+    }
+
+    .category-sidebar {
+        background-color: #DEC1D7;
+        padding: 20px;
+        border-radius: 8px;
+    }
+
+    .products-list-container {
+        padding-left: 40px;
+    }
+
+    .product-list {
+        color: #591E4A;
+        font-size: 1.8em;
+        font-weight: bold;
+    }
+}

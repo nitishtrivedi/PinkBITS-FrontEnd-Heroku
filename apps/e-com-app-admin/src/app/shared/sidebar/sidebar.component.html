@@ -1,0 +1,29 @@
+<div class="admin-sidebar">
+    <div class="logo">
+        <img src="../../../assets/images/pinkbits-new-admin-panel-logo-removebg-preview.png" alt="PinkBits-Admin-Logo" />
+    </div>
+    <div class="links">
+        <ul>
+            <li>
+                <a routerLink="/"><i class="pi pi-home"></i> Dashboard</a>
+            </li>
+            <li>
+                <a routerLink="/products"><i class="pi pi-briefcase"></i> Products</a>
+            </li>
+            <li>
+                <a routerLink="/categories"><i class="pi pi-list"></i> Categories</a>
+            </li>
+            <li>
+                <a routerLink="/orders"><i class="pi pi-shopping-cart"></i> Orders</a>
+            </li>
+            <li>
+                <a routerLink="/users"><i class="pi pi-users"></i> Users</a>
+            </li>
+            <li>
+                <button pButton type="button" label="LogOut" icon="pi pi-sign-out" iconPos="left" (click)="logoutUser()" class="p-button-outlined ml-2 mt-3"></button>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>

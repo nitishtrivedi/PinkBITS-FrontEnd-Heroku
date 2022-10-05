@@ -1,0 +1,110 @@
+<div class="checkout-page">
+    <!-- HEADER -->
+    <div class="grid">
+        <div class="col-12 checkout-page-header">
+            <div class="col-6 checkout-page-header-text">
+              <h2>Checkout</h2>
+            </div>
+            <div class="col-6 checkout-page-header-button">
+              <button
+                pButton
+                label="Back to Cart"
+                icon="pi pi-arrow-left"
+                class="checkout-page-header-button-nav"
+                (click)="backToCart()"
+              ></button>
+            </div>
+          </div>
+    </div>
+    <!-- CONTENT -->
+    <div class="grid">
+        <div class="col-8 checkout-page-form">
+            <h4>Fill details below to place order</h4>
+            <div class="checkout-page-form-body">
+                <form [formGroup]="checkoutFormGroup">
+                    <h5 class="mt-2 mb-3" style="color: #591E4a;">Personal Details</h5>
+                    <p-divider></p-divider>
+                    <div class="grid formgrid">
+                        <div class=" field col-6">
+                            <label for="name"> Full Name</label><br />
+                            <input formControlName="name" id="name" type="text" pInputText /><br />
+                            <small *ngIf="checkoutForm['name'].invalid && isSubmitted" class="p-error">Required</small>
+                        </div>
+                        <div class="field col-6">
+                            <label for="email" class="mr-2">E-Mail</label><br />
+                            <input formControlName="email" id="email" type="text" pInputText /><br />
+                            <small *ngIf="checkoutForm['email'].invalid && isSubmitted" class="p-error"
+                                ><span *ngIf="checkoutForm['email'].errors?.['required']">Required</span>
+                                <span *ngIf="checkoutForm['email'].errors?.['email']">E-Mail is invalid</span></small>
+                        </div>
+                    </div>
+                    <div class="grid formgrid">
+                        <div class="field col-4">
+                            <label for="phone" class="mr-2">Phone</label><br />
+                            <p-inputMask
+                                mask="(999) 999-9999"
+                                formControlName="phone"
+                                placeholder="(999) 999-9999"
+                            ></p-inputMask><br />
+                            <small *ngIf="checkoutForm['phone'].invalid && isSubmitted" class="p-error">Required</small>
+                        </div>
+                    </div>
+                    <h5 class="mt-4 mb-3" style="color: #591E4a;">Address Details</h5>
+                    <p-divider></p-divider>
+                    <div class="grid formgrid">
+                        <div class="field col-6">
+                            <label for="addressLine1" class="mr-2">Address Line 1:</label><br />
+                            <input formControlName="addressLine1" id="addressLine1" type="text" pInputText /><br />
+                            <small *ngIf="checkoutForm['addressLine1'].invalid && isSubmitted" class="p-error">Required</small>
+                        </div>
+                        <div class="field col-6">
+                            <label for="addressLine2" class="mr-2">Address Line 2:</label><br />
+                            <input formControlName="addressLine2" id="addressLine2" type="text" pInputText /><br />
+                            <small *ngIf="checkoutForm['addressLine2'].invalid && isSubmitted" class="p-error">Required</small>
+                        </div>
+                    </div>
+                    <div class="grid formgrid">
+                        <div class="field col-6">
+                            <label for="city" class="mr-2">City:</label><br />
+                            <input formControlName="city" id="city" type="text" pInputText /><br />
+                            <small *ngIf="checkoutForm['city'].invalid && isSubmitted" class="p-error">Required</small>
+                        </div>
+                        <div class="field col-6">
+                            <label for="state" class="mr-2">State:</label><br />
+                            <input formControlName="state" id="state" type="text" pInputText /><br />
+                            <small *ngIf="checkoutForm['state'].invalid && isSubmitted" class="p-error">Required</small>
+                        </div>
+                    </div>
+                    <div class="grid formgrid">
+                        <div class="field col-6">
+                            <label for="country" class="mr-2">Country:</label><br />
+                            <p-dropdown
+                                [options]="countries"
+                                formControlName="country"
+                                optionLabel="name"
+                                optionValue="id"
+                                [filter]="true"
+                                filterBy="name"
+                                [showClear]="true"
+                                placeholder="Select a Country"
+                            ></p-dropdown><br />
+                            <small *ngIf="checkoutForm['country'].invalid && isSubmitted" class="p-error">Required</small>
+                        </div>
+                        <div class="field col-6">
+                            <label for="pin" class="mr-2">Pin Code:</label><br />
+                            <input formControlName="pin" id="pin" type="number" pInputText /><br />
+                            <small *ngIf="checkoutForm['pin'].invalid && isSubmitted" class="p-error">Required</small>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="col-4 checkout-page-summary">
+            <pinkbits-order-summary></pinkbits-order-summary>
+            <div class="checkout-page-summary-button">
+                <button pButton label="Place Order" (click)=" placeOrder()"></button>
+            </div>
+        </div>
+    </div>
+</div>

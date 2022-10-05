@@ -1,0 +1,14 @@
+{
+    "$schema": "./node_modules/nx/schemas/workspace-schema.json",
+    "version": 2,
+    "projects": {
+        "e-com-app-admin": "apps/e-com-app-admin",
+        "e-com-app-admin-e2e": "apps/e-com-app-admin-e2e",
+        "e-comm-app-user": "apps/e-comm-app-user",
+        "e-comm-app-user-e2e": "apps/e-comm-app-user-e2e",
+        "orders-shared-lib": "libs/orders-shared-lib",
+        "products-shared-lib": "libs/products-shared-lib",
+        "ui-shared-lib": "libs/ui-shared-lib",
+        "users-auth-shared-lib": "libs/users-auth-shared-lib"
+    }
+}

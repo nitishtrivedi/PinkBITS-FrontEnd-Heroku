@@ -1,0 +1,58 @@
+<div class="admin-page" *ngIf="statistics.length">
+    <p-card header="Dashboard" subheader="Insights of PinkBITS E-Shop">
+        <div class="grid">
+            <div class="col-3">
+                <p-card styleClass="d-orders">
+                    <div class="d-item">
+                        <div>
+                            <i class="pi pi-shopping-cart"></i><br />
+                            <span class="name">Orders</span>
+                        </div>
+                        <span class="number">
+                            {{statistics[0]}}
+                        </span>
+                    </div>
+                </p-card>
+            </div>
+            <div class="col-3">
+                <p-card styleClass="d-orders">
+                    <div class="d-item">
+                        <div>
+                            <i class="pi pi-briefcase"></i><br />
+                            <span class="name">Products</span>
+                        </div>
+                        <span class="number">
+                            {{statistics[1]}}
+                        </span>
+                    </div>
+                </p-card>
+            </div>
+            <div class="col-3">
+                <p-card styleClass="d-orders">
+                    <div class="d-item">
+                        <div>
+                            <i class="pi pi-users"></i><br />
+                            <span class="name">Users</span>
+                        </div>
+                        <span class="number">
+                            {{statistics[2]}}
+                        </span>
+                    </div>
+                </p-card>
+            </div>
+            <div class="col-3">
+                <p-card styleClass="d-orders">
+                    <div class="d-item">
+                        <div>
+                            <i class="pi pi-chart-line"></i><br />
+                            <span class="name">Total Sales</span>
+                        </div>
+                        <span class="number">
+                            {{statistics[3] | currency: 'INR'}}
+                        </span>
+                    </div>
+                </p-card>
+            </div>
+        </div>
+    </p-card>
+</div>

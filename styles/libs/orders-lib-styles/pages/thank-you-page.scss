@@ -1,0 +1,68 @@
+.thank-you {
+    
+    &-intro {
+        margin-top: 110px;
+        img {
+            width: 200px;
+        }
+
+        &-header {
+            font-size: 4em;
+            margin: 0;
+            padding: 20px;
+            color: #591E4A;
+            font-weight: bold;
+        }
+    }
+
+    &-content {
+        margin-top: 40px;
+
+        &-text {
+            text-align: center;
+            font-size: 1.5em;
+            font-weight: 400;
+            color: #591E4A;
+        }
+    }
+
+    &-message {
+        text-align: center;
+        margin-top: 20px;
+
+        &-shipping {
+            font-size: 1.3em;
+            color: #591E4A;
+            font-weight: 400;
+        }
+    }
+
+    &-outro {
+        text-align: center;
+        margin-top: 10px;
+        margin-bottom: 80px;
+
+        &-text {
+            color: #591E4A;
+            font-size: 1.1em;
+        }
+    }
+
+    &-button {
+        text-align: center;
+        margin-bottom: 130px;
+
+        button {
+            background-color: #591e4a;
+            border: 0;
+            font-weight: bold;
+      
+            &:enabled:hover {
+              background-color: #EEDFEA;
+              border: 1px solid #591e4a;
+              color: #591e4a;
+              font-weight: bolder;
+            }
+        }
+    }
+}

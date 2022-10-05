@@ -1,0 +1,54 @@
+.banner {
+    height: 300px;
+    width: 100%;
+    background-color: #CDA5C3;
+    border-radius: 15px;
+    margin: 0;
+
+
+    &-text {
+        color: #591e4a;
+        margin-top: 50px;
+        padding-left: 70px;
+    
+        h1 {
+          margin: 0;
+          font-size: 3em;
+          font-weight: 400;
+          
+        }
+    
+        h2 {
+          margin: 0;
+          font-size: 2em;
+          font-weight: 300;
+        }
+      }
+
+    &-image {
+        padding: 15px 0 0 0;
+        text-align: center;
+    
+        img {
+          width: 300px;
+        }
+      }
+          
+
+    &-button {
+      background-color: #EEDFEA;
+      color: #591e4a;
+      border: 0;
+      font-weight: bold;
+      border-radius: 10px;
+      height: 45px;
+
+      &:enabled:hover {
+        background-color: #591e4a;
+        color: #EEDFEA;
+        border: 0;
+      }
+    }
+
+
+}

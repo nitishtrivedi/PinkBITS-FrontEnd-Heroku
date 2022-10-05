@@ -1,0 +1,165 @@
+<p-toast></p-toast>
+<div class="admin-page" *ngIf="order">
+    <p-card header="View Orders" subheader="View Your Orders and Change Order Status" styleClass="mb-2"></p-card>
+
+        <p-toolbar styleClass="mb-5">
+            <div class="p-toolbar-group-left"></div>
+            <div class="p-toolbar-group-right">
+                <p-button 
+                    styleClass="p-button-info mr-3" 
+                    label="Orders List"
+                    icon="pi pi-backward"
+                    (onClick)="backToList()">
+                </p-button>
+            </div>
+        </p-toolbar>
+
+
+
+
+    <p-fieldset legend="Order Details" [toggleable]="true" styleClass="mb-5">
+        <div class="grid">
+            <div class="col-4">
+                <h3>Order ID</h3>
+                <p>
+                    {{order.id}}
+                </p>
+            </div>
+            <div class="col-4">
+                <h3>Order Creation Date</h3>
+                <p>
+                    {{order.dateOrdered | date:'short'}}
+                </p>
+            </div>
+            <div class="col-4">
+                <h3>Order Status</h3>
+                <p-dropdown
+                    [options]="orderStatuses"
+                    optionLabel="name"
+                    optionValue="id"
+                    [(ngModel)]="selectedStatus"
+                    (onChange)="onStatusChange($event)"
+                ></p-dropdown>
+            </div>
+            <div class="col-4">
+                <h3>Order Total Price</h3>
+                <p>
+                    {{order.totalPrice | currency:'INR'}}
+                </p>
+            </div>
+        </div>
+    </p-fieldset>
+
+
+    <p-fieldset legend="Order Item Details" [toggleable]="true" styleClass="mb-5">
+        <div class="grid ">
+            <div class="col-2 font-bold"><h3>Product Name</h3></div>
+            <div class="col-2 font-bold"><h3>Brand</h3></div>
+            <div class="col-2 font-bold"><h3>Category</h3></div>
+            <div class="col-2 font-bold"><h3>Price</h3></div>
+            <div class="col-2 font-bold"><h3>Quantity</h3></div>
+            <div class="col-2 font-bold"><h3>Sub Total</h3></div>
+        </div>
+        <p-divider></p-divider>
+        <div class="grid mt-5" *ngFor="let orderItem of order.orderItems">
+            <div class="col-2">
+                {{orderItem.product.name}}
+            </div>
+            <div class="col-2">
+                {{orderItem.product.brand}}
+            </div>
+            <div class="col-2">
+                {{orderItem.product.category.name}}
+            </div>
+            <div class="col-2">
+                {{orderItem.product.price | currency:'INR'}}
+            </div>
+            <div class="col-2">
+                {{orderItem.quantity}}
+            </div>
+            <div class="col-2">
+                {{orderItem.product.price * orderItem.quantity | currency: 'INR'}}
+            </div>
+        </div>
+        <p-divider></p-divider>
+        <div class="grid" style="color: green;">
+            <div class="col-2 col-offset-8 font-bold">
+                Total Price: 
+            </div>
+            <div class="col-2 font-bold">
+                {{order.totalPrice | currency: 'INR'}}
+            </div>
+        </div>
+    </p-fieldset>
+
+
+    <p-fieldset legend="Order Address Details" [toggleable]="true" styleClass="mb-5">
+        <div class="grid">
+            <div class="col-4">
+                <h3>Order Address</h3>
+                <table>
+                    <tr>
+                        <td>
+                            <b>Line 1: </b>
+                        </td>
+                        <td>
+                            {{order.shippingAddress1}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <b>Line 2: </b>
+                        </td>
+                        <td>
+                            {{order.shippingAddress2}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <b>City: </b>
+                        </td>
+                        <td>
+                            {{order.city}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <b>State: </b>
+                        </td>
+                        <td>
+                            {{order.state}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <b>Country: </b>
+                        </td>
+                        <td>
+                            {{order.country}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <b>PIN: </b>
+                        </td>
+                        <td>
+                            {{order.pin}}
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-4">
+                <h3>Order Placed By:</h3>
+                <p>
+                    {{order.user.name}}
+                </p>
+            </div>
+            <div class="col-4">
+                <h3>Contact Information</h3>
+                <p>
+                    {{order.phone}}
+                </p>
+            </div>
+        </div>
+    </p-fieldset>
+</div>

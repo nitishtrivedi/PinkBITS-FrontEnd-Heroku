@@ -1,0 +1,38 @@
+{
+    "projectType": "library",
+    "sourceRoot": "libs/ui-shared-lib/src",
+    "prefix": "pinkbits",
+    "targets": {
+        "build": {
+            "executor": "@nrwl/angular:ng-packagr-lite",
+            "outputs": ["dist/libs/ui-shared-lib"],
+            "options": {
+                "project": "libs/ui-shared-lib/ng-package.json"
+            },
+            "configurations": {
+                "production": {
+                    "tsConfig": "libs/ui-shared-lib/tsconfig.lib.prod.json"
+                },
+                "development": {
+                    "tsConfig": "libs/ui-shared-lib/tsconfig.lib.json"
+                }
+            },
+            "defaultConfiguration": "production"
+        },
+        "test": {
+            "executor": "@nrwl/jest:jest",
+            "outputs": ["coverage/libs/ui-shared-lib"],
+            "options": {
+                "jestConfig": "libs/ui-shared-lib/jest.config.ts",
+                "passWithNoTests": true
+            }
+        },
+        "lint": {
+            "executor": "@nrwl/linter:eslint",
+            "options": {
+                "lintFilePatterns": ["libs/ui-shared-lib/**/*.ts", "libs/ui-shared-lib/**/*.html"]
+            }
+        }
+    },
+    "tags": []
+}

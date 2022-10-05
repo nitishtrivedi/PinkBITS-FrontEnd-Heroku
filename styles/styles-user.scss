@@ -1,0 +1,58 @@
+// Order of the files below should be as is. It must not be changed
+@import '~normalize.css/normalize.css';
+@import './base/color.scss';
+@import './base/fonts.scss';
+@import './base/mixins.scss';
+
+
+//BOOTSTRAP
+// @import '~bootstrap/scss/bootstrap.scss';
+//Removed because included in angular.json
+
+//IMPORT PRIME NG
+@import '~primeicons/primeicons.css';
+@import '~primeng/resources/themes/saga-blue/theme.css';
+@import '~primeng/resources/primeng.min.css';
+@import '~primeflex/primeflex.css';
+@import '~animate.css/animate.css';
+
+
+
+//SHARED Stylesheets
+
+@import './apps/e-comm-app-user/shared/header.scss';
+@import './apps/e-comm-app-user/shared/footer.scss';
+@import './apps/e-comm-app-user/shared/nav.scss';
+
+//Pages Stylesheets
+
+
+@import './apps/e-comm-app-user/pages/home-page.scss';
+@import './apps/e-comm-app-user/pages/product-list-mainpage.scss';
+
+//Libs or Libraries
+
+//UI
+@import './libs/ui-lib-styles/ui-library.scss';
+//Products
+@import './libs/products-lib-styles/products-library.scss';
+//Orders
+@import './libs/orders-lib-styles/orders-library.scss';
+//Users
+@import './libs/users-lib-styles/users-library.scss';
+
+
+//Config
+@import './base/configuration.scss';
+
+
+
+
+
+
+// CODE
+
+
+.background {
+    background-color: #EEDFEA;
+}

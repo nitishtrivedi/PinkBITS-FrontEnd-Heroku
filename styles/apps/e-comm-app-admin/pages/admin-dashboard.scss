@@ -1,0 +1,27 @@
+.d-item {
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+    color: white;
+
+    .pi {
+        font-size: 4em;
+        margin-bottom: 15px;
+    }
+
+    .name {
+        font-size: 1.4em;
+        font-weight: bold;
+    }
+
+    .number {
+        margin-top: 50px;
+        font-size: 2.5em;
+    }
+
+}
+
+.d-orders {
+    background: rgb(41,12,34);
+    background: linear-gradient(90deg, rgba(41,12,34,1) 0%, rgba(89,30,74,1) 100%, rgba(0,0,0,1) 100%);
+}

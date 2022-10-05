@@ -1,0 +1,52 @@
+THIS IS A FILE FOR PRODUCTION instructions
+
+
+Our Production repository is https://github.com/nitishtrivedi/PinkBITS (PUBLIC) and our code repository is https://github.com/nitishtrivedi/PinkBITS-Source (PRIVATE).
+
+For development, make changes to the PRIVATE repo and then use the below mentioned command to push changes to Production (PUBLIC):
+
+
+                                    nx build e-comm-app-user --prod --output-path ../PinkBITS --base-href /PinkBITS/  
+
+
+
+../PinkBITS path in the above CMD line indicates that you need to create Prod folder OUTSIDE the code repository, and ONLY that folder needs to be hosted, not the entire code.
+
+
+Development Database Details:
+
+MongoDB UID and Password
+
+ID: nitish_trivedi0194@yahoo.com
+Pass: Pinky@2603
+
+DB Name: e-shop-database-1
+DB UID: e-shop-db1-admin
+DB PASS: 7350804321
+STRING: mongodb+srv://e-shop-db1-admin:7350804321@cluster0.1lrdpwk.mongodb.net/e-shop-database-1?retryWrites=true&w=majority
+
+
+Product Database Details:
+
+MongoDB UID and Password:
+
+ID: chiragdifferent@gmail.com 
+Pass: Pinky@2603
+
+STRING: mongodb+srv://nitishtrivedi:7350804321@pinkbits-cluster.bxxltnf.mongodb.net/PinkBITS-Backend-Prod-DB?retryWrites=true&w=majority
+DB NAME: PinkBITS-Backend-Prod-DB
+DATABASE_USERID: nitishtrivedi
+DATABASE_PWD: 7350804321
+
+
+------------------------------------------------------------------------
+
+We added the following lines in package.json, for simplification of build processes
+
+        "build-prod-admin": "nx build e-com-app-admin --prod --output-path ../PinkBITS-Admin --base-href /PinkBITS-Admin/",
+        "build-prod-user": "nx build e-comm-app-user --prod --output-path ../PinkBITS --base-href /PinkBITS/",
+
+Now, in order to build either Admin Panel or Main App, Just run the following
+
+npm run build-prod-admin   ------   FOR ADMIN Panel
+npm run build-prod-user    ------   FOR MAIN APP

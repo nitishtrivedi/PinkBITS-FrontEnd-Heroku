@@ -1,0 +1,65 @@
+<p-toast></p-toast>
+<div class="admin-page">
+    <p-card header="Products" subheader="Create, Edit and Delete Products" >
+        <div class="p-grid">
+            <div class="p-col-12">
+                <p-toolbar>
+                    <div class="p-toolbar-group-left">
+                        <p-button 
+                            styleClass="p-button-success" 
+                            label="New" 
+                            icon="pi pi-plus"
+                            routerLink="form">
+                        </p-button>
+                    </div>
+                </p-toolbar>
+            </div>
+        </div>
+        <div class="p-grid">
+            <div class="p-col-12">
+                <p-table [value]="products" responsiveLayout="scroll" styleClass="p-datatable-gridlines"
+                [paginator]="true" [rows]="10" [resizableColumns]="true" [showCurrentPageReport]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,25,50]"
+                >
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <!-- <th>ID</th> Comment Out if not needed in FrontEnd -->
+                            <th pSortableColumn="name">Product Name<p-sortIcon field="name"></p-sortIcon></th>
+                            <th>Image</th>
+                            <th pSortableColumn="price">Product Price<p-sortIcon field="price"></p-sortIcon></th>
+                            <th pSortableColumn="countInStock">Count In Stock<p-sortIcon field="countInStock"></p-sortIcon></th>
+                            <th pSortableColumn="category">Category<p-sortIcon field="category"></p-sortIcon></th>
+                            <th pSortableColumn="dateCreated">Date Created On: <p-sortIcon field="dateCreated"></p-sortIcon></th>
+                            <th>Actions</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-product>
+                        <tr>
+                            <!-- <td>{{category._id}}</td> Comment Out if not needed in FrontEnd -->
+                            <td>{{product.name}}</td>
+                            <td class="col-2"><img [src]="product.image" style="width: 100%;" alt="product-image"></td>
+                            <td>{{product.price}}</td>
+                            <td>{{product.countInStock}}</td>
+                            <td>{{product.category.name}}</td>
+                            <td>{{product.dateCreated | date: 'short'}}</td>
+
+                            <td>
+                                <p-button 
+                                    styleClass="p-button-success p-button-rounded mr-2" 
+                                    icon="pi pi-pencil"
+                                    (onClick)="updateProduct(product.id)"
+                                    ></p-button>
+                                <p-button 
+                                    styleClass="p-button-danger p-button-rounded" 
+                                    icon="pi pi-trash"
+                                    (onClick)="deleteProduct(product.id)"
+                                    >
+                                </p-button>
+                            </td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+        </div>
+    </p-card>
+</div>
+<!-- <p-confirmDialog [style]="{width: '50vw'}" [baseZIndex]="10000" rejectButtonStyleClass="p-button-text"></p-confirmDialog> -->
