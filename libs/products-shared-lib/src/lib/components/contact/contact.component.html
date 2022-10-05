@@ -1,0 +1,64 @@
+<div class="contact">
+    <h2>Have a Question ?</h2>
+    <div class="grid">
+        <div class="col-6">TEST</div>
+        <div class="col-6">
+            <h4>Fill Your Details Below</h4>
+            <form [formGroup]="form">
+                <div class="formgrid grid mb-3">
+                    <div class="col-6">
+                        <label for="firstName" class="mr-3"><b>First Name:</b></label
+                        ><br />
+                        <input
+                            formControlName="firstName"
+                            id="firstName"
+                            type="text"
+                            pInputText
+                        /><br />
+                    </div>
+                    <div class="col-6">
+                        <label for="lastName" class="mr-3"><b>Last Name:</b></label
+                        ><br />
+                        <input
+                            formControlName="lastName"
+                            id="lastName"
+                            type="text"
+                            pInputText
+                        /><br />
+                    </div>
+                </div>
+                <div class="formgrid grid mb-3">
+                    <div class="col-6">
+                        <label for="email" class="mr-3"><b>E-Mail:</b></label
+                        ><br />
+                        <input formControlName="email" id="email" type="text" pInputText /><br />
+                        <small *ngIf="feedbackForm['email'].invalid && isSubmitted" class="p-error"
+                            ><span *ngIf="feedbackForm['email'].errors?.['required']">
+                                E-Mail is required
+                            </span>
+                            <span *ngIf="feedbackForm['email'].errors?.['email']"
+                                >E-Mail is invalid</span
+                            ></small
+                        >
+                    </div>
+                    <div class="col-6">
+                        <label for="phone" class="mr-3"><b>Phone:</b></label
+                        ><br />
+                        <p-inputMask
+                            mask="(999) 999-9999"
+                            formControlName="phone"
+                            placeholder="(999) 999-9999"
+                        ></p-inputMask><br />
+                    </div>
+                </div>
+                <div class="formgrid grid">
+                    <div class="col-12">
+                        <label for="phone" class="mb-2"><b>Please Enter your Question / Feedback:</b></label><br />
+                        <textarea [rows]="5" [cols]="62" pInputTextarea [autoResize]="false" formControlName="comments"></textarea>
+                    </div>
+                </div>
+            </form>
+            <button pButton type="button" label="Submit" (click)="submitFeedback()"></button>
+        </div>
+    </div>
+</div>

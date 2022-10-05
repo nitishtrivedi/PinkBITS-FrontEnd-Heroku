@@ -10,12 +10,17 @@ import { ProductItemComponent } from './components/product-item/product-item.com
 import { ButtonModule } from 'primeng/button';
 import { ProductsListComponent } from './pages/products-list/products-list.component';
 import { CheckboxModule } from 'primeng/checkbox';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
 import { RatingModule } from 'primeng/rating';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { NoSanitizePipe } from './noSanitizerPipe';
 import { UiSharedLibModule } from '@pinkbits/ui-shared-lib';
+import { ContactComponent } from './components/contact/contact.component';
+import { InputMaskModule } from 'primeng/inputmask';
+import { InputTextModule } from 'primeng/inputtext';
+import {InputTextareaModule} from 'primeng/inputtextarea';
+
 
 const routes: Routes = [
   {
@@ -30,6 +35,10 @@ const routes: Routes = [
     path: 'products/:productId',
     component: ProductDetailComponent,
   },
+  {
+    path: 'contact',
+    component: ContactComponent
+  }
 ];
 
 @NgModule({
@@ -42,7 +51,12 @@ const routes: Routes = [
     FormsModule,
     RatingModule,
     InputNumberModule,
-    UiSharedLibModule
+    UiSharedLibModule,
+    FormsModule,
+    ReactiveFormsModule,
+    InputTextModule,
+    InputMaskModule,
+    InputTextareaModule
   ],
   declarations: [
     ProductsSearchComponent,
@@ -51,7 +65,8 @@ const routes: Routes = [
     ProductItemComponent,
     ProductsListComponent,
     ProductDetailComponent,
-    NoSanitizePipe
+    NoSanitizePipe,
+    ContactComponent
   ],
   exports: [
     ProductsSearchComponent,
@@ -60,6 +75,7 @@ const routes: Routes = [
     ProductItemComponent,
     ProductsListComponent,
     ProductDetailComponent,
+    ContactComponent,
   ],
 })
 export class ProductsSharedLibModule {}

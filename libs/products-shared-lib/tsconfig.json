@@ -10,6 +10,7 @@
       "path": "./tsconfig.spec.json"
     }
   ],
+  "composite": true,
   "compilerOptions": {
     "target": "es2020",
     "forceConsistentCasingInFileNames": true,
