@@ -1,11 +1,26 @@
 <div class="contact">
-    <h2>Have a Question ?</h2>
+    <h2>Have a Question? Ask it Here..!</h2>
     <div class="grid">
-        <div class="col-6">TEST</div>
-        <div class="col-6">
-            <h4>Fill Your Details Below</h4>
+        <div class="col-6 contact-content">
+            <div class="contact-content-text">
+                <p> For Any queries, questions and concerns about your Orders, Account or Payment, simply fill up a quick contact form, and add your thoughts in the Comment Box.</p>
+            </div>
+            <div class="contact-content-text">
+                <p>Our team usually gets back to you within 24 to 48 hours with a resolution. In case you don't hear back from us, please write to us in person on <b>"pinkbits.cs@gmail.com"</b>. You can also call us on our hotline <b>+91-7350804321.</b></p>
+            </div>
+            <div class="contact-content-text">
+                <p> <b>Our details:</b> <br>
+                    PinkBITS Inc. <br>
+                    Shukrawar Peth, Pune, <br>
+                    Maharashtra, INDIA    
+                </p>
+            </div>
+        </div>
+        <!-- FORM -->
+        <div class="col-6 contact-form">
+            <h4 class="mb-4">Fill Your Details Below</h4>
             <form [formGroup]="form">
-                <div class="formgrid grid mb-3">
+                <div class="formgrid grid mb-4 contact-form-main">
                     <div class="col-6">
                         <label for="firstName" class="mr-3"><b>First Name:</b></label
                         ><br />
@@ -15,6 +30,11 @@
                             type="text"
                             pInputText
                         /><br />
+                        <small *ngIf="feedbackForm['firstName'].invalid && isSubmitted" class="p-error">
+                            <span *ngIf="feedbackForm['firstName'].errors?.['required']">
+                                Required
+                            </span>
+                        </small>
                     </div>
                     <div class="col-6">
                         <label for="lastName" class="mr-3"><b>Last Name:</b></label
@@ -25,6 +45,11 @@
                             type="text"
                             pInputText
                         /><br />
+                        <small *ngIf="feedbackForm['lastName'].invalid && isSubmitted" class="p-error"
+                            ><span *ngIf="feedbackForm['lastName'].errors?.['required']">
+                                Required
+                            </span>
+                        </small>
                     </div>
                 </div>
                 <div class="formgrid grid mb-3">
@@ -41,7 +66,7 @@
                             ></small
                         >
                     </div>
-                    <div class="col-6">
+                    <div class="col-6 mb-4">
                         <label for="phone" class="mr-3"><b>Phone:</b></label
                         ><br />
                         <p-inputMask
@@ -49,16 +74,36 @@
                             formControlName="phone"
                             placeholder="(999) 999-9999"
                         ></p-inputMask><br />
+
                     </div>
                 </div>
                 <div class="formgrid grid">
-                    <div class="col-12">
+                    <div class="col-12 mb-4">
                         <label for="phone" class="mb-2"><b>Please Enter your Question / Feedback:</b></label><br />
-                        <textarea [rows]="5" [cols]="62" pInputTextarea [autoResize]="false" formControlName="comments"></textarea>
+                        <textarea [rows]="5" [cols]="62" pInputTextarea [autoResize]="false" formControlName="comments">
+                        </textarea><br>
+                        <small *ngIf="feedbackForm['comments'].invalid && isSubmitted" class="p-error">
+                            <span *ngIf="feedbackForm['comments'].errors?.['required']">
+                                Required
+                            </span>
+                        </small>
                     </div>
                 </div>
             </form>
-            <button pButton type="button" label="Submit" (click)="submitFeedback()"></button>
+            <div class="grid">
+                <div class="col-3"></div>
+                <div class="col-5" style="padding: 0;">
+                    <button pButton type="button" label="Submit Feedback" (click)="submitFeedback()"></button>
+                </div>
+                <div class="col-4"></div>
+            </div>
         </div>
     </div>
 </div>
+<p-dialog header="Thank you." [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}"
+    [draggable]="false" [resizable]="false">
+    <p class="m-0"><b>Your feedback has been recorded. Please check your e-mail for further details</b></p>
+        <ng-template pTemplate="footer">
+        <p-button icon="pi pi-check" (click)="resetForm()" label="Ok" styleClass="p-button-text"></p-button>
+        </ng-template>
+</p-dialog>

@@ -19,63 +19,68 @@ import { UiSharedLibModule } from '@pinkbits/ui-shared-lib';
 import { ContactComponent } from './components/contact/contact.component';
 import { InputMaskModule } from 'primeng/inputmask';
 import { InputTextModule } from 'primeng/inputtext';
-import {InputTextareaModule} from 'primeng/inputtextarea';
-
+import { InputTextareaModule } from 'primeng/inputtextarea';
+import { DialogModule } from 'primeng/dialog';
+import { SearchPipe } from './components/products-search/product-filter.pipe';
+import { ProductSearchDirective } from './components/products-search/highlight.directive';
 
 const routes: Routes = [
-  {
-    path: 'products',
-    component: ProductsListComponent,
-  },
-  {
-    path: 'category/:categoryId',
-    component: ProductsListComponent,
-  },
-  {
-    path: 'products/:productId',
-    component: ProductDetailComponent,
-  },
-  {
-    path: 'contact',
-    component: ContactComponent
-  }
+    {
+        path: 'products',
+        component: ProductsListComponent
+    },
+    {
+        path: 'category/:categoryId',
+        component: ProductsListComponent
+    },
+    {
+        path: 'products/:productId',
+        component: ProductDetailComponent
+    },
+    {
+        path: 'contact',
+        component: ContactComponent
+    }
 ];
 
 @NgModule({
-  imports: [
-    CommonModule,
-    OrdersSharedLibModule,
-    RouterModule.forChild(routes),
-    ButtonModule,
-    CheckboxModule,
-    FormsModule,
-    RatingModule,
-    InputNumberModule,
-    UiSharedLibModule,
-    FormsModule,
-    ReactiveFormsModule,
-    InputTextModule,
-    InputMaskModule,
-    InputTextareaModule
-  ],
-  declarations: [
-    ProductsSearchComponent,
-    CategoriesBannerComponent,
-    FeaturedProductsComponent,
-    ProductItemComponent,
-    ProductsListComponent,
-    ProductDetailComponent,
-    NoSanitizePipe,
-    ContactComponent
-  ],
-  exports: [
-    ProductsSearchComponent,
-    CategoriesBannerComponent,
-    FeaturedProductsComponent,
-    ProductItemComponent,
-    ProductsListComponent,
-    ProductDetailComponent,
-    ContactComponent,
-  ],
+    imports: [
+        CommonModule,
+        OrdersSharedLibModule,
+        RouterModule.forChild(routes),
+        ButtonModule,
+        CheckboxModule,
+        FormsModule,
+        RatingModule,
+        InputNumberModule,
+        UiSharedLibModule,
+        FormsModule,
+        ReactiveFormsModule,
+        InputTextModule,
+        InputMaskModule,
+        InputTextareaModule,
+        DialogModule
+    ],
+    declarations: [
+        ProductsSearchComponent,
+        CategoriesBannerComponent,
+        FeaturedProductsComponent,
+        ProductItemComponent,
+        ProductsListComponent,
+        ProductDetailComponent,
+        NoSanitizePipe,
+        ContactComponent,
+        ProductSearchDirective,
+        SearchPipe
+    ],
+    exports: [
+        ProductsSearchComponent,
+        CategoriesBannerComponent,
+        FeaturedProductsComponent,
+        ProductItemComponent,
+        ProductsListComponent,
+        ProductDetailComponent,
+        ContactComponent
+    ]
 })
 export class ProductsSharedLibModule {}

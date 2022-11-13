@@ -3,6 +3,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { environment } from '@env/environment';
+import { timer } from 'rxjs';
 import { EmailService } from '../../services/email.service';
 
 
@@ -17,10 +18,12 @@ export class ContactComponent implements OnInit {
   //Global vars
   form: FormGroup;
   isSubmitted = false;
+  display = false;
+  displayModal: boolean;
 
   constructor(
     private formBuilder: FormBuilder,
-    private email: EmailService 
+    private email: EmailService
   ) { }
 
   ngOnInit(): void {
@@ -41,8 +44,7 @@ export class ContactComponent implements OnInit {
 
   submitFeedback() {
     this.isSubmitted = true;
-    console.log(this.feedbackForm['firstName'].value)
-
+    //console.log(this.feedbackForm['firstName'].value)
 
     const user = {
       firstName: this.feedbackForm['firstName'].value,
@@ -62,8 +64,17 @@ export class ContactComponent implements OnInit {
       }
     )
 
+    this.showModalDialog();
+    
+  }
 
+  showModalDialog() {
+    this.displayModal = true;
+  }
 
+  resetForm () {
+    this.displayModal = false;
+    location.reload()
   }
 
   get feedbackForm () {

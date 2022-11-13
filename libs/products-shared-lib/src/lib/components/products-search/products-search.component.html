@@ -1,4 +1,10 @@
 <div class="products-search">
     <i class="pi pi-search"></i>
-    <input type="text" placeholder="Find Products" class="products-search-input" name="search" id="search">
+    <input type="text" placeholder="Find Products" class="products-search-input" name="search" id="search"  [(ngModel)]="searchText">
 </div>
+<ul class="list-group list-group-flush" style="position: absolute;" *ngIf="searchText" >
+    <!-- results of ngFor is passed to appFilter with argument searchText -->
+    <li class="list-group-item" *ngFor="let name of finalArray | productSearch: searchText" pinkbitsProductSearch [searchedWord]="searchText" [content]="name" [classToApply]="'font-weight-bold'" [setTitle]="true" >
+      {{name}}
+    </li>
+</ul>
