@@ -1,43 +1,73 @@
 <div class="login-register">
-    <div class="login-register-panel">
+    <div class="panel">
         <div class="grid">
-            <div class="col-12">
-                <img class="login-page-logo" src="assets/images/pinkbits-admin-logo-removebg-preview.png" alt="">
+            <!-- LOGO -->
+            <div class="col-6 admin-logo">
+                <img src="assets/images/pinkbits-admin-logo-removebg-preview.png" alt="" />
             </div>
-            <div class="col-offset-4 p-5">
-                <h2 style="color: white;">Log-In Here</h2>
-                <form [formGroup]="loginFormGroup">
-                    <div class="grid mt-6">
-                        <!-- EMAIL -->
-                        <div class="col-12">
-                            <span class="p-float-label">
-                                <input id="float-input" type="text" formControlName="email" pInputText> 
-                                <label for="float-input">E-Mail</label>
-                            </span>
-                            <small *ngIf="loginForm.email.invalid && isSubmitted" class="p-error">
-                                <span *ngIf="loginForm.email.errors.required">E-Mail is Required</span>
-                                <span *ngIf="loginForm.email.errors.email">E-Mail is Invalid</span>
-                            </small>
+            <!-- FORM -->
+            <div class="col-6">
+                <div class="login-form">
+                    <h2 style="color: white">Log-In Here</h2>
+                    <form [formGroup]="loginFormGroup">
+                        <div class="grid mt-6">
+                            <!-- EMAIL -->
+                            <div class="col-12">
+                                <span class="p-float-label">
+                                    <input
+                                        id="float-input"
+                                        type="text"
+                                        formControlName="email"
+                                        pInputText
+                                    />
+                                    <label for="float-input">E-Mail</label>
+                                </span>
+                                <small
+                                    *ngIf="loginForm.email.invalid && isSubmitted"
+                                    class="p-error"
+                                >
+                                    <span *ngIf="loginForm.email.errors.required"
+                                        >E-Mail is Required</span
+                                    >
+                                    <span *ngIf="loginForm.email.errors.email"
+                                        >E-Mail is Invalid</span
+                                    >
+                                </small>
+                            </div>
+                            <!-- PASSWORD -->
+                            <div class="col-12 mt-3">
+                                <span class="p-float-label">
+                                    <input
+                                        id="float-input"
+                                        type="password"
+                                        formControlName="password"
+                                        pInputText
+                                    />
+                                    <label for="float-input">Password</label>
+                                </span>
+                                <small
+                                    *ngIf="loginForm.password.invalid && isSubmitted"
+                                    class="p-error"
+                                    >Password Is Required</small
+                                >
+                            </div>
+                            <!-- BUTTON -->
+                            <div class="col-12">
+                                <p-button label="Submit" (onClick)="onSubmit()"></p-button>
+                            </div>
                         </div>
-                        <!-- PASSWORD -->
-                        <div class="col-12 mt-3">
-                            <span class="p-float-label">
-                                <input id="float-input" type="password" formControlName="password" pInputText> 
-                                <label for="float-input">Password</label>
-                            </span>
-                            <small *ngIf="loginForm.password.invalid && isSubmitted" class="p-error">Password Is Required</small>
-                        </div>
-                        <!-- BUTTON -->
-                        <div class="col-12">
-                            <p-button label="Submit" (onClick)="onSubmit()" ></p-button>
-                        </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
-            <!-- ERROR IF LOGIN FAILED -->
+        </div>
+        <div class="grid error-display">
             <div class="col-12">
-                <h4 class="p-error mt-3" style="text-align: center;" *ngIf="isSubmitted && authError">
-                    {{authMessage}}
+                <h4
+                    class="p-error mt-3"
+                    style="text-align: center"
+                    *ngIf="isSubmitted && authError"
+                >
+                    {{ authMessage }}
                 </h4>
             </div>
         </div>

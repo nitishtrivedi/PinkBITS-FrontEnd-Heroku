@@ -1,55 +1,67 @@
 .login-register {
-    // background: rgb(0,0,0);
-    // background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(89,30,74,1) 46%, rgba(0,0,0,1) 100%);
-
-    // ANIMATED BACKGROUND
-    
-    // animation: animateBg 15s linear infinite;
-    // background-image: linear-gradient(90deg,#000000,#591e4a,#000000,#000000,#591e4a);
-    // background-size: 400% 100%;
-
-    //   @keyframes animateBg {
-    //     0% { background-position: 0% 0%; }
-    //     100% { background-position: 100% 0%; }
-    //   }
-      
-
     background: linear-gradient(91deg, #000000, #591e4a, #000000);
-    background-size: 100% 10000%;
 
     -webkit-animation: AnimationName 200s ease infinite;
     -moz-animation: AnimationName 200s ease infinite;
     animation: AnimationName 200s ease infinite;
 
     @-webkit-keyframes AnimationName {
-        0%{background-position:52% 0%}
-        50%{background-position:49% 100%}
-        100%{background-position:52% 0%}
+        0% {
+            background-position: 52% 0%;
+        }
+        50% {
+            background-position: 49% 100%;
+        }
+        100% {
+            background-position: 52% 0%;
+        }
     }
     @-moz-keyframes AnimationName {
-        0%{background-position:52% 0%}
-        50%{background-position:49% 100%}
-        100%{background-position:52% 0%}
+        0% {
+            background-position: 52% 0%;
+        }
+        50% {
+            background-position: 49% 100%;
+        }
+        100% {
+            background-position: 52% 0%;
+        }
     }
     @keyframes AnimationName {
-        0%{background-position:52% 0%}
-        50%{background-position:49% 100%}
-        100%{background-position:52% 0%}
+        0% {
+            background-position: 52% 0%;
+        }
+        50% {
+            background-position: 49% 100%;
+        }
+        100% {
+            background-position: 52% 0%;
+        }
     }
-      
+
     height: 100vh;
 
-    &-panel {
-        width: 800px;
-        height: 425px;
+    .panel {
+        width: 1030px;
+        height: 540px;
         position: absolute;
-        left: calc(30%);
-        top: calc(50% - 260px);
-    }
+        left: 400px;
+        top: 200px;
 
-    .login-page-logo {
-        width: 100%;
-        // margin-top: 80px;
-        // margin-left: 50px;
+        .grid {
+            .admin-logo {
+                img {
+                    margin-top: 140px;
+                    width: 500px;
+                    height: 140px;
+                    padding: 0;
+                }
+            }
+
+            .login-form {
+                margin-top: 140px;
+                margin-left: 100px;
+            }
+        }
     }
 }
