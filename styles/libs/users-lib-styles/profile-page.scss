@@ -1,0 +1,51 @@
+.profile-page {
+    h3 {
+        color: #591e4a;
+    }
+
+    &-cards {
+        margin-top: 50px;
+        width: 85%;
+
+        .user-address,
+        .user-contact-info {
+            font-size: 20px;
+            span {
+                font-weight: 600;
+                margin-right: 10px;
+            }
+        }
+
+        .edit-button {
+            display: flex;
+            justify-content: end;
+
+            &-text {
+                display: flex;
+                justify-content: end;
+                font-weight: 600;
+                margin-right: 5px;
+            }
+        }
+    }
+
+    //PRIMENG CUSTOM SCSS
+    //ICONS
+    .pi-user-edit {
+        color: #591e4a;
+        font-size: 24px;
+    }
+    .edit-user-button {
+        background-color: #eedfea;
+    }
+    .p-accordion-header {
+        background-color: aqua;
+    }
+    .p-card {
+        background-color: #f6eff4;
+        h4 {
+            color: #591e4a;
+            font-weight: 700;
+        }
+    }
+}

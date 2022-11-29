@@ -1,0 +1,61 @@
+.user-menu {
+    position: absolute;
+    width: 300px;
+    height: auto;
+    right: 300px;
+    z-index: 1;
+    margin-top: 15px;
+    background-color: #cda5c3;
+    border-radius: 5px;
+    border: 2px solid #591e4a;
+    //box-shadow: 5px 5px 10px 12px #cda5c3;
+
+    &-show {
+        color: #591e4a;
+        .username-span {
+            font-size: 14px;
+            font-weight: 600;
+        }
+        .user-name {
+            padding: 8px 0 0 15px;
+        }
+        .action-links {
+            padding: 6px 0 15px 18px;
+
+            .links-span {
+                font-size: 20px;
+                font-weight: 600;
+
+                &:hover {
+                    color: $primary-color;
+                    text-decoration: underline;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    &-hide {
+        .not-logged-in {
+            padding: 10px 0 18px 15px;
+
+            .nli-header {
+                font-size: 20px;
+                font-weight: 600;
+            }
+            .nli-text {
+                font-size: 16px;
+                font-weight: 500;
+            }
+            .nli-link {
+                font-size: 16px;
+                font-weight: 500;
+                &:hover {
+                    color: $primary-color;
+                    text-decoration: underline;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,60 @@
+<div class="login2">
+    <h3>Please Login to Proceed</h3>
+    <div class="login2-container">
+        <div class="login2-container-box">
+            <h4>Enter Your Credentials Below</h4>
+            <div class="login2-container-box-form">
+                <form [formGroup]="loginFormGroup">
+                    <div class="grid mt-6 main-form">
+                        <!-- EMAIL -->
+                        <div class="col-12 form-div">
+                            <span class="p-float-label">
+                                <input
+                                    id="float-input"
+                                    type="text"
+                                    formControlName="email"
+                                    pInputText
+                                />
+                                <label for="float-input">E-Mail</label>
+                            </span>
+                            <small *ngIf="loginForm.email.invalid && isSubmitted" class="p-error">
+                                <span *ngIf="loginForm.email.errors.required"
+                                    >E-Mail is Required</span
+                                >
+                                <span *ngIf="loginForm.email.errors.email">E-Mail is Invalid</span>
+                            </small>
+                        </div>
+                        <!-- PASSWORD -->
+                        <div class="col-12 mt-3 form-div">
+                            <span class="p-float-label">
+                                <input
+                                    id="float-input"
+                                    type="password"
+                                    formControlName="password"
+                                    pInputText
+                                />
+                                <label for="float-input">Password</label>
+                            </span>
+                            <small *ngIf="loginForm.password.invalid && isSubmitted" class="p-error"
+                                >Password Is Required</small
+                            >
+                        </div>
+                        <!-- BUTTON -->
+                        <div class="col-12 submit-button-div">
+                            <p-button
+                                label="Submit"
+                                class="login2-button"
+                                (onClick)="onSubmit()"
+                            ></p-button>
+                        </div>
+                        <div class="col-12 register-text">
+                            <span
+                                >Don't have an account? <a href="/register">Register Here</a></span
+                            >
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

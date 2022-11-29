@@ -1,0 +1,76 @@
+<div class="profile-page" *ngIf="userName">
+    <h3>Hello {{ userName }},</h3>
+    <div class="profile-page-cards col-offset-1">
+        <!-- ADDRESS INFORMATION CARD -->
+        <p-card>
+            <h4>Your Address Details</h4>
+            <p-divider></p-divider>
+            <div class="grid">
+                <div class="col-10">
+                    <div class="user-address">
+                        <div class="user-address-data"><span>Line 1: </span>{{ userAddress1 }}</div>
+                        <div class="user-address-data"><span>Line 2: </span>{{ userAddress2 }}</div>
+                        <div class="user-address-data"><span>City: </span>{{ userCity }}</div>
+                        <div class="user-address-data"><span>Pin: </span>{{ userPin }}</div>
+                        <div class="user-address-data"><span>State: </span>{{ userState }}</div>
+                        <div class="user-address-data"><span>Country: </span>{{ userCountry }}</div>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="edit-button">
+                        <button
+                            pButton
+                            pRipple
+                            type="button"
+                            icon="pi pi-user-edit"
+                            class="p-button-rounded p-button-text edit-user-button"
+                        ></button>
+                    </div>
+                    <div class="edit-button-text">
+                        <span>Edit</span>
+                    </div>
+                </div>
+            </div>
+        </p-card>
+        <!-- CONTACT INFORMATION CARD -->
+        <p-card styleClass="mt-3">
+            <h4>Your Contact Details</h4>
+            <p-divider></p-divider>
+            <div class="grid">
+                <div class="col-10">
+                    <div class="user-contact-info">
+                        <div class="contact-info-data">
+                            <span>Phone Number: </span> {{ userPhone }}
+                        </div>
+                        <div class="contact-info-data">
+                            <span>Registered E-Mail Address: </span> {{ userEmail }}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="edit-button">
+                        <button
+                            pButton
+                            pRipple
+                            type="button"
+                            icon="pi pi-user-edit"
+                            class="p-button-rounded p-button-text edit-user-button"
+                        ></button>
+                    </div>
+                    <div class="edit-button-text">
+                        <span>Edit</span>
+                    </div>
+                </div>
+            </div>
+        </p-card>
+        <!-- ORDER INFORMATION CARD -->
+        <p-card styleClass="mt-3">
+            <h4>Your Payment Methods</h4>
+            <p-divider></p-divider>
+            <div class="payment-methods">
+                <span>Payment Method: Cash</span>
+                Card Details: NA
+            </div>
+        </p-card>
+    </div>
+</div>

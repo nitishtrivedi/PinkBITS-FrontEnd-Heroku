@@ -1,0 +1,25 @@
+<i class="pi pi-user" (click)="onClickShowHide()" (clickOutside)="onClickedOutside()"></i>
+<div class="user-menu" *ngIf="showFlag">
+    <div class="user-menu-show" *ngIf="userName; else hideUserMenu">
+        <div class="user-name">
+            <span class="username-span">Logged in as {{ userName }},</span>
+        </div>
+        <div class="action-links">
+            <span class="links-span" routerLink="/profile">Your Profile</span><br />
+            <span class="links-span" routerLink="/orders">Your Orders</span><br />
+            <span class="links-span" (click)="logout()">Logout</span>
+        </div>
+    </div>
+    <!-- IF USER IS NOT LOGGED IN -->
+    <ng-template #hideUserMenu>
+        <div class="user-menu-hide">
+            <div class="not-logged-in">
+                <span class="nli-header">You are NOT Logged In</span><br />
+                <span class="nli-text"
+                    >Please Click <span class="nli-link" routerLink="/login2">Here</span> to
+                    Login</span
+                >
+            </div>
+        </div>
+    </ng-template>
+</div>

@@ -30,11 +30,10 @@ export class ProductsSearchComponent implements OnInit {
             });
             const searchResultArray = this.searchResult;
             this.finalArray = searchResultArray.split(',');
-            console.log(this.finalArray);
         });
     }
 
     testMethod() {
-      location.reload()
+        location.reload();
     }
 }
